@@ -48,11 +48,6 @@ def get_special_countries(df):
 # plot selected countries for trends
 def plot_countries(df, countries):
     plt.figure(figsize=(10, 7))
-    plt.suptitle(
-        "Cell Phone Adoption Over Time: Comparing Slowest, Median, Fastest Growth, and US",
-        fontsize=14,
-        fontweight='bold'
-    )
 
     # convert columns to integers for easier manipulation later
     years = df.columns.astype(int)
@@ -115,7 +110,16 @@ def plot_countries(df, countries):
     ticks = list(range(max_year, min_year - 1, -step))
     plt.xticks(ticks, rotation=45)
 
-    plt.tight_layout()
+    
+    plt.title(
+        "Cell Phone Adoption Over Time: Comparing Slowest, Median, Fastest Growth, and US",
+        fontsize=14,
+        fontweight='bold',
+        x=0.59,
+        pad=20
+    )
+
+    plt.tight_layout(pad=2)
 
     folder = "plots"
     filename = "cell_phone_country_comparison.png"
